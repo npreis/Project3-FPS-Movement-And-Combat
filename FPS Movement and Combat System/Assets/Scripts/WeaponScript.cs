@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponScript : MonoBehaviour
 {
     public WeaponManagerScript.Weapons weapon;
+    public AmmoManagerScript ammo;
 
     // Start is called before the first frame update
     void Start()
@@ -15,10 +16,11 @@ public class WeaponScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckInput();
+        WeaponSwitch();
+        FireWeapon();
     }
 
-    void CheckInput()
+    void WeaponSwitch()
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -39,6 +41,29 @@ public class WeaponScript : MonoBehaviour
         {
             weapon = WeaponManagerScript.Weapons.RPG;
             Debug.Log("RPG Equipped");
+        }
+    }
+
+    void FireWeapon()
+    {
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if(weapon == WeaponManagerScript.Weapons.HANDGUN && ammo.currHandgunAmmo > 0)
+            {
+                ammo.currHandgunAmmo--;
+            }
+            if (weapon == WeaponManagerScript.Weapons.SHOTGUN && ammo.currShotgunAmmo > 0)
+            {
+                ammo.currShotgunAmmo--;
+            }
+            if (weapon == WeaponManagerScript.Weapons.RIFLE && ammo.currRifleAmmo > 0)
+            {
+                ammo.currRifleAmmo--;
+            }
+            if (weapon == WeaponManagerScript.Weapons.RPG && ammo.currRPGAmmo > 0)
+            {
+                ammo.currRPGAmmo--;
+            }
         }
     }
 }
