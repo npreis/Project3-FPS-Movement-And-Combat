@@ -1788,6 +1788,10 @@ MonoBehaviour:
   currShotgunAmmo: 10
   currRifleAmmo: 30
   currRPGAmmo: 3
+  handgunCooldown: 1.5
+  shotgunCooldown: 2.5
+  rifleCooldown: 0.35
+  RPGCooldown: 5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,6 +3531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 0
   ammo: {fileID: 649636884}
+  cooldown: 0
 --- !u!43 &1714638742
 Mesh:
   m_ObjectHideFlags: 0

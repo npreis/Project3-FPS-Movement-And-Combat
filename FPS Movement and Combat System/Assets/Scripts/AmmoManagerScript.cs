@@ -14,15 +14,8 @@ public class AmmoManagerScript : MonoBehaviour
     public int currRifleAmmo;
     public int currRPGAmmo;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float handgunCooldown;
+    public float shotgunCooldown;
+    public float rifleCooldown;
+    public float RPGCooldown;
 }
