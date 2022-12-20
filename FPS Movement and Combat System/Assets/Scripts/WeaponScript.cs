@@ -8,6 +8,7 @@ public class WeaponScript : MonoBehaviour
     public AmmoManagerScript ammo;
 
     public float cooldown;
+    public Camera camera;
 
     // Start is called before the first frame update
     void Start()
@@ -63,25 +64,49 @@ public class WeaponScript : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Mouse0) && cooldown == 0.0f)
         {
-            if(weapon == WeaponManagerScript.Weapons.HANDGUN && ammo.currHandgunAmmo > 0)
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            int layerMask = 11;
+
+            if (weapon == WeaponManagerScript.Weapons.HANDGUN && ammo.currHandgunAmmo > 0)
             {
                 ammo.currHandgunAmmo--;
                 cooldown = ammo.handgunCooldown;
+
+                if(Physics.Raycast(ray, out hit, 100, layerMask))
+                {
+                    Debug.Log("Hit object");
+                }
             }
             if (weapon == WeaponManagerScript.Weapons.SHOTGUN && ammo.currShotgunAmmo > 0)
             {
                 ammo.currShotgunAmmo--;
                 cooldown = ammo.shotgunCooldown;
+
+                if (Physics.Raycast(ray, out hit, 50, layerMask))
+                {
+                    Debug.Log("Hit object");
+                }
             }
             if (weapon == WeaponManagerScript.Weapons.RIFLE && ammo.currRifleAmmo > 0)
             {
                 ammo.currRifleAmmo--;
                 cooldown = ammo.rifleCooldown;
+
+                if (Physics.Raycast(ray, out hit, 150, layerMask))
+                {
+                    Debug.Log("Hit object");
+                }
             }
             if (weapon == WeaponManagerScript.Weapons.RPG && ammo.currRPGAmmo > 0)
             {
                 ammo.currRPGAmmo--;
                 cooldown = ammo.RPGCooldown;
+
+                if (Physics.Raycast(ray, out hit, 70, layerMask))
+                {
+                    Debug.Log("Hit object");
+                }
             }
         }
     }
