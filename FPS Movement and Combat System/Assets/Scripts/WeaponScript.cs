@@ -6,6 +6,7 @@ public class WeaponScript : MonoBehaviour
 {
     public WeaponManagerScript.Weapons weapon;
     public AmmoManagerScript ammo;
+    public AmmoCounterScript counter;
 
     public float cooldown;
     public Camera camera;
@@ -30,6 +31,8 @@ public class WeaponScript : MonoBehaviour
                 cooldown = 0.0f;
             }
         }
+
+        counter.SetAmmo(weapon);
     }
 
     void WeaponSwitch()

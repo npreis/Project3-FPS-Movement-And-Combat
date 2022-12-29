@@ -14,6 +14,11 @@ public class AmmoManagerScript : MonoBehaviour
     public int currRifleAmmo;
     public int currRPGAmmo;
 
+    public int handgunAmmoGain;
+    public int shotgunAmmoGain;
+    public int rifleAmmoGain;
+    public int RPGAmmoGain;
+
     public float handgunCooldown;
     public float shotgunCooldown;
     public float rifleCooldown;
