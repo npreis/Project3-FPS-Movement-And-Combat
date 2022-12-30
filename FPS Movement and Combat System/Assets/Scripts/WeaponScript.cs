@@ -10,6 +10,7 @@ public class WeaponScript : MonoBehaviour
 
     public float cooldown;
     public Camera camera;
+    public GameObject enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -79,6 +80,8 @@ public class WeaponScript : MonoBehaviour
                 if(Physics.Raycast(ray, out hit, 50, layerMask))
                 {
                     Debug.Log("Hit object");
+                    enemy = hit.transform.gameObject;
+                    enemy.GetComponent<EnemyHealthScript>().DecreaseHealth(ammo.handgunDamage);
                 }
             }
             if (weapon == WeaponManagerScript.Weapons.SHOTGUN && ammo.currShotgunAmmo > 0)
@@ -89,6 +92,8 @@ public class WeaponScript : MonoBehaviour
                 if (Physics.Raycast(ray, out hit, 25, layerMask))
                 {
                     Debug.Log("Hit object");
+                    enemy = hit.transform.gameObject;
+                    enemy.GetComponent<EnemyHealthScript>().DecreaseHealth(ammo.shotgunDamage);
                 }
             }
             if (weapon == WeaponManagerScript.Weapons.RIFLE && ammo.currRifleAmmo > 0)
@@ -99,6 +104,8 @@ public class WeaponScript : MonoBehaviour
                 if (Physics.Raycast(ray, out hit, 100, layerMask))
                 {
                     Debug.Log("Hit object");
+                    enemy = hit.transform.gameObject;
+                    enemy.GetComponent<EnemyHealthScript>().DecreaseHealth(ammo.rifleDamage);
                 }
             }
             if (weapon == WeaponManagerScript.Weapons.RPG && ammo.currRPGAmmo > 0)
@@ -109,6 +116,8 @@ public class WeaponScript : MonoBehaviour
                 if (Physics.Raycast(ray, out hit, 60, layerMask))
                 {
                     Debug.Log("Hit object");
+                    enemy = hit.transform.gameObject;
+                    enemy.GetComponent<EnemyHealthScript>().DecreaseHealth(ammo.RPGDamage);
                 }
             }
         }

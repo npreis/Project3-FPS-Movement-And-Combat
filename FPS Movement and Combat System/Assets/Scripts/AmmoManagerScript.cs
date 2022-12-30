@@ -23,4 +23,9 @@ public class AmmoManagerScript : MonoBehaviour
     public float shotgunCooldown;
     public float rifleCooldown;
     public float RPGCooldown;
+
+    public int handgunDamage;
+    public int shotgunDamage;
+    public int rifleDamage;
+    public int RPGDamage;
 }
