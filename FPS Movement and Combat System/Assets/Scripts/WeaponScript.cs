@@ -76,7 +76,7 @@ public class WeaponScript : MonoBehaviour
                 ammo.currHandgunAmmo--;
                 cooldown = ammo.handgunCooldown;
 
-                if(Physics.Raycast(ray, out hit, 100, layerMask))
+                if(Physics.Raycast(ray, out hit, 50, layerMask))
                 {
                     Debug.Log("Hit object");
                 }
@@ -86,7 +86,7 @@ public class WeaponScript : MonoBehaviour
                 ammo.currShotgunAmmo--;
                 cooldown = ammo.shotgunCooldown;
 
-                if (Physics.Raycast(ray, out hit, 50, layerMask))
+                if (Physics.Raycast(ray, out hit, 25, layerMask))
                 {
                     Debug.Log("Hit object");
                 }
@@ -96,7 +96,7 @@ public class WeaponScript : MonoBehaviour
                 ammo.currRifleAmmo--;
                 cooldown = ammo.rifleCooldown;
 
-                if (Physics.Raycast(ray, out hit, 150, layerMask))
+                if (Physics.Raycast(ray, out hit, 100, layerMask))
                 {
                     Debug.Log("Hit object");
                 }
@@ -106,7 +106,7 @@ public class WeaponScript : MonoBehaviour
                 ammo.currRPGAmmo--;
                 cooldown = ammo.RPGCooldown;
 
-                if (Physics.Raycast(ray, out hit, 70, layerMask))
+                if (Physics.Raycast(ray, out hit, 60, layerMask))
                 {
                     Debug.Log("Hit object");
                 }
