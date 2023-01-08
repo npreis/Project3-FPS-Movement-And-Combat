@@ -25,8 +25,8 @@ public class CameraRotateScript : MonoBehaviour
     void Update()
     {
 
-        float inputX = Input.GetAxisRaw("Mouse X") * Time.fixedDeltaTime * mouseSensitivityX;
-        float inputY = Input.GetAxisRaw("Mouse Y") * Time.fixedDeltaTime * mouseSensitivityY;
+        float inputX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * mouseSensitivityX;
+        float inputY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * mouseSensitivityY;
 
         cameraYRotation += inputX;
         cameraXRotation -= inputY;

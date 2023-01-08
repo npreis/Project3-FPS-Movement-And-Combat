@@ -26,7 +26,7 @@ public class WeaponScript : MonoBehaviour
 
         if(cooldown > 0.0f)
         {
-            cooldown -= Time.fixedDeltaTime;
+            cooldown -= Time.deltaTime;
             if(cooldown <= 0.0f)
             {
                 cooldown = 0.0f;
@@ -66,7 +66,7 @@ public class WeaponScript : MonoBehaviour
 
     void FireWeapon()
     {
-        if(Input.GetKey(KeyCode.Mouse0) && cooldown == 0.0f)
+        if(Input.GetKey(KeyCode.Mouse0) && cooldown == 0.0f && Time.timeScale > 0)
         {
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
